@@ -37,3 +37,20 @@ setup_plot = function(
     )
   assign("default_theme", default_theme, envir = .GlobalEnv)
 }
+
+add_grid_lines = function(horizontal = FALSE, vertical = FALSE) {
+
+  if(horizontal == TRUE & vertical == FALSE) {
+    theme(panel.grid.major.y = element_line(color = light_gray,
+                                            linewidth = 0.3527777778))
+  } else if (horizontal == FALSE & vertical == TRUE) {
+    theme(panel.grid.major.x = element_line(color = light_gray,
+                                            linewidth = 0.3527777778))
+  } else if (horizontal == TRUE & vertical == TRUE) {
+    theme(panel.grid.major.x = element_line(color = light_gray,
+                                            linewidth = 0.3527777778),
+          panel.grid.major.y = element_line(color = light_gray,
+                                            linewidth = 0.3527777778)
+          )
+  }
+}

@@ -21,9 +21,10 @@ p1 <- ggplot(mtcars2) +
     x = "Weight (1000 lbs)",
     y = "Fuel economy (mpg)",
     colour = "Gears"
-  )
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0,0.1)))
 
-p1 + theme_gray() # the default
+#p1 + theme_gray() # the default
 p1 + default_theme
 
 sample_df = data.frame(dose=c("D0.5", "D1", "D2"),
@@ -44,4 +45,7 @@ p2 <- ggplot(data=sample_df, aes(x=dose, y=len)) +
     y = "Tooth length",
   ) +
   scale_y_continuous(expand = expansion(mult = c(0,0.1)))
-p2 + default_theme
+
+p2 +
+  default_theme +
+  add_grid_lines(horizontal = TRUE, vertical = FALSE)
