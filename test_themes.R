@@ -12,7 +12,9 @@ mtcars2 <- within(mtcars, {
 })
 
 p1 <- ggplot(mtcars2) +
-  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  geom_point(aes(x = wt, y = mpg, colour = gear), 
+             #show.legend = FALSE
+             ) +
   labs(
     title = "Fuel economy declines as weight increases",
     #subtitle = "(1973-74)",
@@ -46,6 +48,7 @@ p2 <- ggplot(data=sample_df, aes(x=dose, y=len)) +
   ) +
   scale_y_continuous(expand = expansion(mult = c(0,0.1)))
 
-p2 +
+p1 +
   default_theme +
-  add_grid_lines(horizontal = TRUE, vertical = FALSE)
+  add_grid_lines(horizontal = TRUE, vertical = FALSE) +
+  add_legend()

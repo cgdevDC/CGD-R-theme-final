@@ -5,7 +5,6 @@ setup_plot = function(
   default_theme = theme_bw() +
     theme(
       plot.margin=grid::unit(c(4,4,2,4), "mm"),
-      legend.position="bottom",
       panel.border = element_blank(),
       axis.text = element_text(family = "Sofia Pro Regular",
                                size = 12,
@@ -31,7 +30,9 @@ setup_plot = function(
       text = element_text(family = "Sofia Pro Bold", 
                           size = 18, 
                           colour = teal),
-      legend.title = element_blank(),
+      #legend.title = element_blank(),
+      #legend = element_blank(),
+      legend.position = "none",
       plot.title.position = "plot",
       plot.title = element_text(margin=margin(0,0,15,0)),
     )
@@ -53,4 +54,13 @@ add_grid_lines = function(horizontal = FALSE, vertical = FALSE) {
                                             linewidth = 0.3527777778)
           )
   }
+}
+
+add_legend = function() {
+  theme(legend.position= "bottom",
+        legend.text = element_text(family = "Sofia Pro Light Italic",
+                                   size = 12,
+                                   colour = teal_black),
+        legend.title = element_blank(),
+  )
 }
